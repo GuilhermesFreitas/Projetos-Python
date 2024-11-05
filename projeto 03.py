@@ -5,23 +5,32 @@ def linha():
     print('-' * 50)
 
 
-while True:  # para que o numero aleatorio fosse gerado apenas uma vez foi criado um outro while true
+LIMITE_MIN = 0
+LIMITE_MAX = 5  # adcionei limite maximo de tentativas.
+
+linha()
+nome = input("Digite seu nome:")
+linha()
+print(f"Então {nome}, você tem {LIMITE_MAX} tentativas!")
+print(f"Boa sorte! {nome}")
+
+while True:
     try:
         linha()
-        print("         JOGO DA ADIVIAÇÃO       ")
+        print(" JOGO DA ADIVIAÇÃO ")
         linha()
-        num = range(1, 11)  # Define o intervalo de números de 1 a 10
-        num_a = r.choice(num)  # Número aleatório gerado uma vez
-        # Mensagem para o jogador
+        num = range(1, 11)
+        num_a = r.choice(num)
         print("Um número foi escolhido entre 1 e 10.")
 
-        while True:  # Loop para tentativas do jogador
-            # Entrada do usuário
+        # definir que o numero maximo de tentativas são cinco
+        for tentativas in range(LIMITE_MAX):
             E = int(input(f"Digite um número de 1 a 10: "))
+            linha()
 
             if E < 1 or E > 10:
                 print("Por favor, digite um número de 1 a 10.")
-                continue  # Se o número estiver fora do intervalo, continua para a próxima iteração
+                continue
 
             if E > num_a:
                 print("Tente um número mais baixo...")
@@ -31,7 +40,13 @@ while True:  # para que o numero aleatorio fosse gerado apenas uma vez foi criad
                 linha()
                 print(f"Parabéns!!! Você ganhou! A resposta era {num_a}")
                 linha()
-                break  # Sai do loop de tentativas
+                break
+
+        else:  # caso o loop de 5 tentativas acabe vai aparecer essa mensagem.
+            linha()
+            print(
+                f"Você usou o numero maximo de tentativas.. o numero certo era {num_a}")
+            linha()
 
     except ValueError:
         print("Entrada inválida. Por favor, digite um número inteiro de 1 a 10.")
