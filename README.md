@@ -1,5 +1,6 @@
 #  Projetos e Exercícios em Python.
-Meu Primeiro Repositorio.
+Meu Primeiro Repositório.
+Com apenas Exercícios e Projetos em Python.
 
 
--Guilherme Freitas
+-Guilherme Freitas.
